@@ -20,7 +20,7 @@ RUN make
 WORKDIR /rtl-wmbus
 RUN make release && chmod 755 build/rtl_wmbus
 WORKDIR /rtl_433
-RUN cmake -B build -G Ninja \
+RUN git checkout 5786c01 && cmake -B build -G Ninja \
         -DCMAKE_BUILD_TYPE=MinSizeRel && \
     cmake --build build
 WORKDIR /rtl_reset
